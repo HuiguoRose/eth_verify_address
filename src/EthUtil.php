@@ -36,7 +36,7 @@ class EthUtil
     public static function isAddress($value)
     {
         if (!is_string($value)) {
-            die('The value to isAddress function must be string.');
+            throw new InvalidArgumentException('The value to isAddress function must be string.');
         }
         if (preg_match('/^(0x|0X)?[a-f0-9A-F]{40}$/', $value) !== 1) {
             return false;
@@ -56,7 +56,7 @@ class EthUtil
     public static function isAddressChecksum($value)
     {
         if (!is_string($value)) {
-            die('The value to isAddressChecksum function must be string.');
+            throw new InvalidArgumentException('The value to isAddressChecksum function must be string.');
         }
         $value = self::stripZero($value);
         $hash = self::stripZero(self::sha3(mb_strtolower($value)));
@@ -95,7 +95,7 @@ class EthUtil
     public static function isZeroPrefixed($value)
     {
         if (!is_string($value)) {
-            die('The value to isZeroPrefixed function must be string.');
+            throw new InvalidArgumentException('The value to isZeroPrefixed function must be string.');
         }
         return (strpos($value, '0x') === 0);
     }
@@ -110,7 +110,7 @@ class EthUtil
     public static function sha3($value)
     {
         if (!is_string($value)) {
-            die('The value to sha3 function must be string.');
+            throw new InvalidArgumentException('The value to sha3 function must be string.');
         }
         if (strpos($value, '0x') === 0) {
             $value = self::hexToBin($value);
