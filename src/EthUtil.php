@@ -10,7 +10,6 @@ namespace eth_verify_address;
 
 
 use InvalidArgumentException;
-use kornrunner\Keccak;
 
 /**
  * Class EthUtil
